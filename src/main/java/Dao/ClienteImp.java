@@ -86,12 +86,20 @@ public class ClienteImp implements ICliente {
 		//para administrar las transacciones
 		EntityManager em=emf.createEntityManager();
 		//para el listado
+<<<<<<< HEAD
 		List<TblCliente> buscarcodigo=null;
+=======
+		List<TblCliente> listadocliente=null;
+>>>>>>> 4650aeb4fcf1e64b2f32af1e893effd9f32fc207
 		try{
 			//iniciamos la transaccion..
 			em.getTransaction().begin();
 			//hacemos la consulta JPQL
+<<<<<<< HEAD
 			buscarcodigo=em.createQuery("select c from TblCliente c",TblCliente.class).getResultList();
+=======
+			listadocliente=em.createQuery("select c from TblCliente c",TblCliente.class).getResultList();
+>>>>>>> 4650aeb4fcf1e64b2f32af1e893effd9f32fc207
 		     //confirmamos
 			em.getTransaction().commit();
 		
@@ -102,6 +110,7 @@ public class ClienteImp implements ICliente {
 			em.close();
 		}  //fin del finally
 		//retornamos el listado
+<<<<<<< HEAD
 		return buscarcodigo;
 	}  //fin del metodo listar....
 
@@ -129,4 +138,28 @@ public class ClienteImp implements ICliente {
 		//retornamos el listado
 		return buscarcodigo;
 	}  //fin del metodo listar....
+=======
+		return listadocliente;
+	}  //fin del metodo listar....
+
+	public TblCliente BuscarCliente(TblCliente cliente) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoJPAWebMiercoles");
+		EntityManager em = emf.createEntityManager();
+		TblCliente buscado = null;
+		try {
+			em.getTransaction().begin();
+			buscado = em.find(TblCliente.class, cliente.getIdcliente());
+			em.getTransaction().commit();
+		}
+		catch (RuntimeException ex)
+		{
+			System.out.println(ex.getMessage());
+		}finally {
+			em.close();
+		}
+		return buscado;		
+	}
+	
+	
+>>>>>>> 4650aeb4fcf1e64b2f32af1e893effd9f32fc207
 } //fin de la clase...

@@ -1,11 +1,37 @@
 package TestEntidades;
 
+<<<<<<< HEAD
+=======
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+>>>>>>> 4650aeb4fcf1e64b2f32af1e893effd9f32fc207
 
 import Dao.ClienteImp;
 import Modelo.TblCliente;
 
 public class TestTblCliente {
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
+>>>>>>> 4650aeb4fcf1e64b2f32af1e893effd9f32fc207
 	public static void main(String[] args) {
 		//realizamos la respectiva instancia...
 		TblCliente cliente=new TblCliente();
@@ -42,6 +68,7 @@ public class TestTblCliente {
         //imprimir mensaje
         System.out.println("dato eliminado de la BD");
         */
+<<<<<<< HEAD
         
         //testear el buscaclientetado
         /*
@@ -71,6 +98,32 @@ public class TestTblCliente {
     			" telefono "+buscacliente.getTelfcliente()+
     			" sexo "+buscacliente.getSexcliente());
         
+=======
+          
+    /*        //testear el listado
+           List<TblCliente> listado=climp.ListarCliente();
+        //aplicamos un bucle for
+        for(TblCliente lis:listado){
+        	//imprimimos por pantalla
+        	System.out.println("codigo "+lis.getIdcliente()+
+        			" nombre "+lis.getNomcliente()+
+        			" apellido "+lis.getApecliente()+
+        			" dni "+lis.getDnicliente()+
+        			" nacionalidad "+lis.getNacioncliente()+
+        			" email "+lis.getEmailcliente()+
+        			" telefono "+lis.getTelfcliente()+
+        			" sexo "+lis.getSexcliente());
+
+        	 
+        } //fin for
+        */
+        
+		// testeando el metodo BUSCAR
+		cliente.setIdcliente(1);
+		TblCliente buscliente = climp.BuscarCliente(cliente);
+		System.out.println("codigo: " + buscliente.getIdcliente() + " nombre: " + buscliente.getNomcliente() + " apellido: "
+				+ buscliente.getApecliente() + " telefono: " + buscliente.getTelfcliente() + " email: " + buscliente.getEmailcliente());
+>>>>>>> 4650aeb4fcf1e64b2f32af1e893effd9f32fc207
 	} //fin del metodo principal.....
 
 } //fin de la clase...
