@@ -106,27 +106,22 @@ public class ClienteImp implements ICliente {
 	}  //fin del metodo listar....
 
 	public TblCliente BuscarCliente(TblCliente cliente) {
-		//nos conectamos con la u.p.
-				EntityManagerFactory emf=Persistence.createEntityManagerFactory("ProyectoJPAWebMiercoles");
-				//para administrar las transacciones
-				EntityManager em=emf.createEntityManager();
-				//para el buscar
-				TblCliente buscarcodigo=null;
-				try{
-					//iniciamos la transaccion..
-					em.getTransaction().begin();
-					//recuperamos el codigo a buscar
-					buscarcodigo=em.find(TblCliente.class,cliente.getIdcliente());
-				     //confirmamos
-					em.getTransaction().commit();
-				
-				}catch(RuntimeException e){
-					System.out.println(e.getMessage());
-				}finally{
-					//cerramos
-					em.close();
-				}  //fin del finally
-				//retornamos el listado
-				return buscarcodigo;
-			}  //fin del metodo listar....
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoJPAWebMiercoles");
+		EntityManager em = emf.createEntityManager();
+		TblCliente buscado = null;
+		try {
+			em.getTransaction().begin();
+			buscado = em.find(TblCliente.class, cliente.getIdcliente());
+			em.getTransaction().commit();
+		}
+		catch (RuntimeException ex)
+		{
+			System.out.println(ex.getMessage());
+		}finally {
+			em.close();
+		}
+		return buscado;		
+	}
+	
+	
 } //fin de la clase...

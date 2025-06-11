@@ -2,11 +2,30 @@ package TestEntidades;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import Dao.ClienteImp;
 import Modelo.TblCliente;
 
 public class TestTblCliente {
 
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		//realizamos la respectiva instancia...
 		TblCliente cliente=new TblCliente();
@@ -43,9 +62,9 @@ public class TestTblCliente {
         //imprimir mensaje
         System.out.println("dato eliminado de la BD");
         */
-        
-        //testear el listado
-        List<TblCliente> listado=climp.ListarCliente();
+          
+    /*        //testear el listado
+           List<TblCliente> listado=climp.ListarCliente();
         //aplicamos un bucle for
         for(TblCliente lis:listado){
         	//imprimimos por pantalla
@@ -57,7 +76,16 @@ public class TestTblCliente {
         			" email "+lis.getEmailcliente()+
         			" telefono "+lis.getTelfcliente()+
         			" sexo "+lis.getSexcliente());
-        } //fin del bucle for...
+
+        	 
+        } //fin for
+        */
+        
+		// testeando el metodo BUSCAR
+		cliente.setIdcliente(1);
+		TblCliente buscliente = climp.BuscarCliente(cliente);
+		System.out.println("codigo: " + buscliente.getIdcliente() + " nombre: " + buscliente.getNomcliente() + " apellido: "
+				+ buscliente.getApecliente() + " telefono: " + buscliente.getTelfcliente() + " email: " + buscliente.getEmailcliente());
 	} //fin del metodo principal.....
 
 } //fin de la clase...
